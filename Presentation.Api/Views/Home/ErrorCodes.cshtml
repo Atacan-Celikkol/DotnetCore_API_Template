@@ -1,0 +1,23 @@
+﻿@using Core.Exceptions
+@{
+    var exceptions = ViewBag.Exceptions as List<BaseException>;
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>ErrorCode</th>
+            <th>HttpStatusCode</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    @foreach (var item in exceptions)
+    {
+        <tr>
+            <td>@item.Key</td>
+            <td>@item.ErrorCode</td>
+            <td>@item.StatusCode</td>
+            <td>@item.Message</td>
+        </tr>
+    }
+</table>
