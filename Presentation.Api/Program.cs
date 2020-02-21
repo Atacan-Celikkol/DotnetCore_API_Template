@@ -4,12 +4,12 @@ using Microsoft.Extensions.Hosting;
 namespace Presentation.Api
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class Program
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
@@ -18,7 +18,7 @@ namespace Presentation.Api
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>

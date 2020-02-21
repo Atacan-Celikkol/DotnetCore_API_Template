@@ -5,4 +5,3 @@
         public string Details { get; set; }
     }
 }
-

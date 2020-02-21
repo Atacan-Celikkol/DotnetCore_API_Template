@@ -1,17 +1,17 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using Core.Extensions;
+using Data.Models.Identity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Microsoft.AspNetCore.Identity;
-using Data.Models.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using Core.Extensions;
+using System;
+using System.Threading.Tasks;
 
 namespace Presentation.Api.Token
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class TokenProviderMiddleware
     {
@@ -20,7 +20,7 @@ namespace Presentation.Api.Token
         private readonly JsonSerializerSettings _serializerSettings;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="next"></param>
         /// <param name="options"></param>
@@ -40,7 +40,7 @@ namespace Presentation.Api.Token
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
@@ -83,7 +83,6 @@ namespace Presentation.Api.Token
             var testCode = !configuration.IsProduction && user != null && otp == "258369";
             if (user == null)
             {
-
             }
             if (!testCode && !correctCode)
             {
@@ -126,7 +125,6 @@ namespace Presentation.Api.Token
                 return;
             }
             await GenerateJwtAsync(context, user);
-
         }
 
         private async Task GenerateJwtAsync(HttpContext context, User user)

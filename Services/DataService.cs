@@ -1,46 +1,62 @@
-﻿using System;
+﻿using Core.Extensions;
+using Data;
+using Data.Extensions;
+using Data.Models;
+using Data.Models.Enums;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Data;
-using Data.Models;
-using Data.Models.Enums;
-using Core.Extensions;
-using Data.Extensions;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Services
 {
     public interface IDataService : IService
     {
         Task<bool> IsAuthorizedForResourceAsync(string resourceId, string userId);
+
         bool IsAuthorizedForResource(string resourceId, string userId);
     }
 
     public interface IDataService<TModel> : IDataService
     {
         #region AsyncMethods
+
         Task<List<TModel>> GetItemsAsync();
+
         Task<TModel> GetItemAsync(string id, params Expression<Func<TModel, object>>[] includeExpressions);
+
         Task<TModel> UpdateItemAsync(TModel item);
+
         Task DeleteItemAsync(string id);
+
         Task<TModel> CreateItemAsync(TModel item);
+
         Task<PaginatedData<TModel>> GetItemsAsync(int page, int size,
             Expression<Func<TModel, bool>> whereExpression = null, string sortBy = null, OrderType orderType = OrderType.Default, params Expression<Func<TModel, object>>[] includeExpressions);
-        #endregion
+
+        #endregion AsyncMethods
 
         #region SyncMethods
+
         List<TModel> GetItems();
+
         TModel GetItem(string id, params Expression<Func<TModel, object>>[] includeExpressions);
+
         TModel UpdateItem(TModel user);
+
         void DeleteItem(string id);
+
         TModel CreateItem(TModel data);
+
         PaginatedData<TModel> GetItems(int page, int size,
             Expression<Func<TModel, bool>> whereExpression = null, string sortBy = null, OrderType orderType = OrderType.Default, params Expression<Func<TModel, object>>[] includeExpressions);
-        #endregion
+
+        #endregion SyncMethods
+
         IDbContextTransaction BeginTransaction(IsolationLevel level = IsolationLevel.ReadCommitted);
     }
 
@@ -58,7 +74,9 @@ namespace Services
         {
             Context = context;
         }
+
         public abstract Task<bool> IsAuthorizedForResourceAsync(string resourceId, string userId);
+
         public abstract bool IsAuthorizedForResource(string resourceId, string userId);
     }
 
@@ -77,6 +95,7 @@ namespace Services
         }
 
         #region Async Methods
+
         public virtual async Task DeleteItemAsync(string id)
         {
             var item = await Context.Set<TModel>().FindAsync(id);
@@ -103,7 +122,6 @@ namespace Services
 
         public virtual async Task<TModel> UpdateItemAsync(TModel user)
         {
-
             var entity = user as IAuditedEntity;
             await Context.SaveChangesAsync();
 
@@ -150,6 +168,7 @@ namespace Services
                     case OrderType.Asc:
                         query = query.OrderBy($"{sortBy} Asc");
                         break;
+
                     case OrderType.Desc:
                         query = query.OrderBy($"{sortBy} Desc");
                         break;
@@ -166,11 +185,12 @@ namespace Services
         {
             var set = Context.Set<TModel>();
             return await set.ToListAsync();
-
         }
-        #endregion
+
+        #endregion Async Methods
 
         #region Sync Methods
+
         public override bool IsAuthorizedForResource(string resourceId, string userId)
         {
             throw new NotImplementedException();
@@ -243,6 +263,7 @@ namespace Services
                     case OrderType.Asc:
                         query = query.OrderBy($"{sortBy} Asc");
                         break;
+
                     case OrderType.Desc:
                         query = query.OrderBy($"{sortBy} Desc");
                         break;
@@ -259,11 +280,9 @@ namespace Services
         {
             var set = Context.Set<TModel>();
             return set.ToList();
-
         }
 
-
-        #endregion
+        #endregion Sync Methods
 
         public IDbContextTransaction BeginTransaction(IsolationLevel level = IsolationLevel.ReadCommitted)
         {

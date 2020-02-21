@@ -3,9 +3,8 @@
     public class WrongPasswordOrUsernameException : BaseException
     {
         public WrongPasswordOrUsernameException()
-            :base("Wrong Password or Username")
+            : base("Wrong Password or Username")
         {
-
         }
     }
 }

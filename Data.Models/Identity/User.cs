@@ -1,10 +1,10 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Core.Extensions;
+﻿using Core.Extensions;
 using Core.Utils;
 using Data.Models.Enums;
 using Microsoft.AspNetCore.Identity;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models.Identity
 {
@@ -19,33 +19,42 @@ namespace Data.Models.Identity
         }
 
         #region Base Properties
+
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTimeOffset CreateDate { get; set; }
         public DateTimeOffset? DeleteDate { get; set; }
         public DateTimeOffset? LastModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
-        #endregion
+
+        #endregion Base Properties
 
         #region Personal Information
+
         [MaxLength(15)]
         public string VoucherId { get; set; }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? BirthDate { get; set; }
         public string ImageUrl { get; set; }
         public Gender Gender { get; set; }
-        #endregion
+
+        #endregion Personal Information
 
         #region Login
+
         public int LoginAttempts { get; set; }
         public DateTimeOffset? LastCodeSendDate { get; set; }
-        #endregion
+
+        #endregion Login
 
         #region Advertising
+
         public bool IsSmsAdvertisingPermitted { get; set; }
         public bool IsEmailAdvertisingPermitted { get; set; }
-        #endregion
+
+        #endregion Advertising
 
         [NotMapped]
         public string FullName => FirstName + ' ' + LastName;

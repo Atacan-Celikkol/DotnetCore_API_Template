@@ -15,11 +15,10 @@ using Services;
 using System;
 using System.Threading.Tasks;
 
-
 namespace Presentation.Api.Controllers
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Route("account")]
     [ApiController]
@@ -41,7 +40,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -73,7 +72,6 @@ namespace Presentation.Api.Controllers
                     transaction.Commit();
                     //TODO: Add TableStorageService Here for Statistics
                 }
-
                 catch (Exception e)
                 {
                     transaction.Rollback();
@@ -86,9 +84,9 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        /// <param name="loginRequest"></param>     
+        /// <param name="loginRequest"></param>
         /// <returns></returns>
         [Route("login")]
         [HttpPost]
@@ -106,7 +104,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -131,7 +129,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -150,7 +148,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -164,7 +162,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>

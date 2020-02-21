@@ -1,59 +1,59 @@
-using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using Core.Exceptions;
+using Core.Extensions;
 using Data;
+using Data.Models.Identity;
+using Data.Models.Mapping;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Text;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Presentation.Api.Token;
-using Core.Extensions;
-using Data.Models.Identity;
-using Data.Models.Mapping;
-using AutoMapper;
-using Presentation.Api.Middlewares;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Core.Exceptions;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using System.Net;
-using Services;
-using Providers.File;
-using Providers.Sms;
-using Newtonsoft.Json.Converters;
-using Microsoft.AspNetCore.SignalR;
-using Presentation.Api.Providers;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
-using Microsoft.AspNetCore.Http.Features;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
+using Presentation.Api.Middlewares;
+using Presentation.Api.Providers;
+using Presentation.Api.Token;
+using Providers.File;
+using Providers.Mail;
 using Providers.Queue;
+using Providers.Sms;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Localization;
-using System.Reflection;
 using System.IO;
-using Presentation.Api.Controllers;
-using Providers.Mail;
+using System.Linq;
+using System.Net;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Presentation.Api
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class Startup
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IConfiguration Configuration { get; }
+
         private readonly TokenValidationParameters _tokenValidationParameters;
 
         private readonly TokenProviderOptions _tokenProviderOptions;
@@ -61,7 +61,7 @@ namespace Presentation.Api
         private readonly IList<CultureInfo> supportedCultures;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="configuration"></param>
         /// <param name="env"></param>
@@ -92,7 +92,6 @@ namespace Presentation.Api
                 TokenDecryptionKey = signingKey,
             };
 
-
             _tokenProviderOptions = new TokenProviderOptions
             {
                 Path = Configuration.GetSection("TokenAuthentication:TokenPath").Value,
@@ -108,17 +107,17 @@ namespace Presentation.Api
                 new CultureInfo("en-US"),
                 new CultureInfo("tr-TR")
             };
-
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="services"></param>
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             #region CORS
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowedOrigins",
@@ -129,9 +128,11 @@ namespace Presentation.Api
                            .AllowAnyMethod();
                 });
             });
-            #endregion
+
+            #endregion CORS
 
             #region Database
+
             if (_projectConfiguration.IsLocalhost)
             {
                 _ = _projectConfiguration.UseLocalDb ?
@@ -142,9 +143,11 @@ namespace Presentation.Api
             {
                 services.AddDbContext<DataContext>(options => options.UseSqlServer(_projectConfiguration.DefaultConnection, opt => opt.UseNetTopologySuite()));
             }
-            #endregion
+
+            #endregion Database
 
             #region Identity
+
             services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<DataContext>()
                 .AddDefaultTokenProviders();
@@ -165,9 +168,11 @@ namespace Presentation.Api
                 options.ValueLengthLimit = int.MaxValue;
                 options.MultipartHeadersLengthLimit = int.MaxValue;
             });
-            #endregion
+
+            #endregion Identity
 
             #region IServices
+
             services.AddAutoMapper(typeof(MapperProfile));
             services.AddSingleton(_projectConfiguration);
             services.AddTransient(typeof(JwtHelper));
@@ -185,9 +190,11 @@ namespace Presentation.Api
             services.AddTransient<IAboutUsService, AboutUsService>();
             services.AddTransient<FAQService, FAQService>();
             services.AddTransient<PrivacyPolicyService, PrivacyPolicyService>();
-            #endregion
+
+            #endregion IServices
 
             #region Authentication and Exception Handling
+
             services.AddAuthentication(cfg =>
               {
                   cfg.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -231,12 +238,12 @@ namespace Presentation.Api
                                 return Task.CompletedTask;
                             }
                  };
-
              });
 
-            #endregion
+            #endregion Authentication and Exception Handling
 
             #region MVC
+
             services.AddResponseCaching();
             services.AddMvc(options => options.EnableEndpointRouting = false)
                .AddNewtonsoftJson(options =>
@@ -263,9 +270,11 @@ namespace Presentation.Api
             services.AddControllersWithViews();
             services.AddControllers();
             services.AddSingleton<IUserIdProvider, UserIdProvider>();
-            #endregion
+
+            #endregion MVC
 
             #region Localization
+
             services.AddLocalization(t =>
            {
                t.ResourcesPath = "Resources";
@@ -273,8 +282,6 @@ namespace Presentation.Api
 
             services.Configure<RequestLocalizationOptions>(options =>
           {
-
-
               // State what the default culture for your application is. This will be used if no specific culture
               // can be determined for a given request.
               options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
@@ -305,12 +312,13 @@ namespace Presentation.Api
                   return Task.FromResult(new ProviderCultureResult("en-US", "en-US"));
               }));
           });
-            #endregion
+
+            #endregion Localization
 
             #region SignalR
+
             services.AddSignalR(hubOptions =>
             {
-
                 hubOptions.EnableDetailedErrors = !_projectConfiguration.IsProduction;
             }).AddNewtonsoftJsonProtocol(options =>
             {
@@ -321,7 +329,6 @@ namespace Presentation.Api
                     {
                         OverrideSpecifiedNames = true
                     },
-
                 };
                 options.PayloadSerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 options.PayloadSerializerSettings.Formatting = Formatting.None;
@@ -331,19 +338,18 @@ namespace Presentation.Api
                     DateTimeFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'sszzz"
                 };
                 options.PayloadSerializerSettings.Converters.Add(dateConverter);
-
-
             });
-            #endregion
+
+            #endregion SignalR
 
             #region Swagger
+
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new OpenApiInfo
                     {
                         Title = "Api Documentation"
                     });
-
 
                     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                     {
@@ -364,11 +370,12 @@ namespace Presentation.Api
                     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                     c.IncludeXmlComments(xmlPath, true);
                 });
-            #endregion
+
+            #endregion Swagger
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
@@ -378,8 +385,8 @@ namespace Presentation.Api
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager,
 RoleManager<Role> roleManager)
         {
-
             #region Database
+
             if (_projectConfiguration.IsLocalhost)
             {
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
@@ -399,7 +406,8 @@ RoleManager<Role> roleManager)
                     IdentityDataInitializer.SeedData(userManager, roleManager);
                 }
             }
-            #endregion
+
+            #endregion Database
 
             //_projectConfiguration = new ProjectConfiguration(Configuration, );
             if (env.IsDevelopment())
@@ -411,7 +419,6 @@ RoleManager<Role> roleManager)
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
 
             var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(locOptions.Value);
@@ -430,13 +437,13 @@ RoleManager<Role> roleManager)
                 routes.MapControllerRoute(name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRazorPages();
-
             });
 
             #region Swagger
+
             app.UseSwagger();
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
@@ -444,7 +451,8 @@ RoleManager<Role> roleManager)
             });
 
             _ = app.UseMvc();
-            #endregion
+
+            #endregion Swagger
         }
     }
 }

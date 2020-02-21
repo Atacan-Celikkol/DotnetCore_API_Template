@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-namespace Core.Exceptions
+﻿namespace Core.Exceptions
 {
     public class PasswordsNotSameException : BaseException
     {

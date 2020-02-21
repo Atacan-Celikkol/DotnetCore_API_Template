@@ -8,6 +8,7 @@ namespace Core.Extensions
 
         private static readonly System.Security.Cryptography.RNGCryptoServiceProvider Random =
         new System.Security.Cryptography.RNGCryptoServiceProvider();
+
         private static readonly byte[] Buffer = new byte[6];
 
         public static Guid NewGuid()

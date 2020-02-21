@@ -1,6 +1,5 @@
 ﻿using Core.Exceptions;
 using Core.Extensions;
-using Core.Utils;
 using Data;
 using Data.Extensions;
 using Data.Models.Enums;
@@ -16,6 +15,7 @@ namespace Services
     public interface IUserService : IDataService<User>
     {
         Task<PaginatedData<User>> SearchAsync(int page, int size, string q, string sortBy = null, OrderType orderType = OrderType.Default);
+
         Task<List<Role>> GetUserRolesAsync(string userId);
     }
 
@@ -35,8 +35,8 @@ namespace Services
             user.IsDeleted = true;
             user.DeleteDate = DateTimeOffset.UtcNow;
             user.UserName = $"deleted_{user.UserName}";
-            user.NormalizedEmail= $"deleted_{user.NormalizedEmail}";
-            user.NormalizedUserName= $"deleted_{user.NormalizedUserName}";
+            user.NormalizedEmail = $"deleted_{user.NormalizedEmail}";
+            user.NormalizedUserName = $"deleted_{user.NormalizedUserName}";
             user.PhoneNumber = $"deleted_{user.PhoneNumber}";
             user.Email = $"deleted_{user.Email}";
             user.IsActive = false;
@@ -62,6 +62,7 @@ namespace Services
                     case OrderType.Asc:
                         query = query.OrderBy($"{sortBy} Asc");
                         break;
+
                     case OrderType.Desc:
                         query = query.OrderBy($"{sortBy} Desc");
                         break;

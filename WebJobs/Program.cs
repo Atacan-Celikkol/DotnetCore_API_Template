@@ -14,7 +14,6 @@ using System.IO;
 
 namespace WebJobs
 {
-
     internal class Program
     {
         // Please set the following connection strings in app.config for this WebJob to run:
@@ -22,7 +21,6 @@ namespace WebJobs
         private static void Main()
         {
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")?.ToLower();
-
 
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -71,5 +69,4 @@ namespace WebJobs
             }
         }
     }
-
 }

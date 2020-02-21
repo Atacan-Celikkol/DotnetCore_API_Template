@@ -1,37 +1,39 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Data.Extensions;
+﻿using Data.Extensions;
 using Data.Models;
 using Data.Models.Common;
 using Data.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Data
 {
     public class DataContext : IdentityDbContext<User>
     {
-
         #region User
+
         public new DbSet<User> Users { get; set; }
         public new DbSet<Role> Roles { get; set; }
-        #endregion
+
+        #endregion User
 
         #region Common
+
         public DbSet<Data.Models.Common.KeyValuePair> KeyValuePairs { get; set; }
         public DbSet<UserAgreement> UserAgreements { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<FAQ> FAQs { get; set; }
         public DbSet<PrivacyPolicy> PrivacyPolicies { get; set; }
-        #endregion
+
+        #endregion Common
 
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -39,14 +41,17 @@ namespace Data
             base.OnModelCreating(builder);
 
             #region User
+
             builder.Entity<User>().ToTable("Users").HasIndex(t => t.VoucherId).IsUnique();
             builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
             builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
             builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
             builder.Entity<IdentityRole>().ToTable("Roles");
-            #endregion
+
+            #endregion User
 
             #region Common
+
             builder.Entity<Data.Models.Common.KeyValuePair>().ToTable("KeyValuePairs").HasIndex(x => x.Key).IsUnique();
             builder.Entity<UserAgreement>().Property(t => t.Version).ValueGeneratedOnAdd();
             builder.Entity<UserAgreement>().Property(t => t.Version).Metadata.SetAfterSaveBehavior(Microsoft.EntityFrameworkCore.Metadata.PropertySaveBehavior.Ignore);
@@ -63,15 +68,17 @@ namespace Data
             builder.Entity<PrivacyPolicy>().Property(t => t.Version).ValueGeneratedOnAdd();
             builder.Entity<PrivacyPolicy>().Property(t => t.Version).Metadata.SetAfterSaveBehavior(Microsoft.EntityFrameworkCore.Metadata.PropertySaveBehavior.Ignore);
             builder.Entity<PrivacyPolicy>().ToTable("PrivacyPolicies");
-            #endregion
+
+            #endregion Common
 
             #region Filter
+
             builder.Entity<User>().HasQueryFilter(x => !x.IsDeleted);
-            #endregion
+
+            #endregion Filter
 
             builder.Seed();
         }
-
 
         private void OrganizeDates()
         {
@@ -100,7 +107,6 @@ namespace Data
                 deleted.DeleteDate = now;
                 deleted.IsDeleted = true;
             }
-
         }
 
         public Task<int> SaveChangesAsync()

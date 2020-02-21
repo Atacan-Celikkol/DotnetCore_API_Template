@@ -28,6 +28,7 @@ namespace Core.Extensions
         }
 
         #region Environments
+
         public bool IsLocalhost => _isLocalHost;
         public bool UseLocalDb => _useLocalDb;
         public bool IsDevelopment => _isDevelopment;
@@ -35,48 +36,63 @@ namespace Core.Extensions
         public bool IsStaging => _isStaging;
 
         public string EnvironmentName => _environmentName;
-        #endregion   
+        #endregion Environments
+
+
 
         #region ConnectionStrings
+
         public string DefaultConnection => _configuration.GetConnectionString("DefaultConnection");
         public string StorageConnection => _configuration.GetConnectionString("StorageConnection");
         public string LocalStorageConnection => _configuration.GetConnectionString("LocalStorageConnection");
         public string RedisConnection => _configuration.GetConnectionString("RedisConnection");
         public string AzureWebJobsServiceBus => _configuration.GetConnectionString("AzureWebJobsServiceBus");
-        #endregion
+
+        #endregion ConnectionStrings
 
         #region DbSettings
+
         public bool IsAutoMigrationEnabled => !string.IsNullOrEmpty(_configuration["Data:AutoMigrationEnabled"]) &&
             Convert.ToBoolean(_configuration["Data:AutoMigrationEnabled"]);
+
         public bool AllowDataLoss => !string.IsNullOrEmpty(_configuration["Data:AllowDataLoss"]) &&
             Convert.ToBoolean(_configuration["Data:AllowDataLoss"]);
-        #endregion
+
+        #endregion DbSettings
 
         #region Environment Urls
+
         public string ApiBaseUrl => _configuration["EndPoints:ApiBaseUrl"];
         public string WebsiteBaseUrl => _configuration["EndPoints:WebsiteBaseUrl"];
         public string AdminBaseUrl => _configuration["EndPoints:AdminBaseUrl"];
         public string StorageBaseUrl => _configuration["EndPoints:StorageBaseUrl"];
-        #endregion
 
+        #endregion Environment Urls
 
         #region External Api Keys
+
         public string AutoPaperApiKey => _configuration["AutoPaperApiKey"];
         public string SendGridApiKey => _configuration.GetValue<string>("SendGrid:ApiKey");
-        #endregion
+
+        #endregion External Api Keys
 
         #region SendGridTemplates
+
         public string SendGridWelcomeTemplateId => _configuration["SendGrid:WelcomeTemplateId"];
         public string SendGridForgotPasswordTemplateId => _configuration["SendGrid:ForgotPasswordTemplateId"];
-        #endregion
+
+        #endregion SendGridTemplates
 
         #region Extra Info
+
         public string PushNotificationEndpoint => _configuration["PushNotification:Endpoint"];
         public string PushNotificationHubName => _configuration["PushNotification:HubName"];
         public string DefaultProxy => _configuration["DefaultProxy"];
-        #endregion
+
+        #endregion Extra Info
 
         #region Allowed File Types
+
         public List<string> AllowedMimeTypes =>
             string.IsNullOrEmpty(_configuration["AllowedMimeTypes"])
             ? new List<string>()
@@ -86,6 +102,7 @@ namespace Core.Extensions
            string.IsNullOrEmpty(_configuration["AllowedVideoMimeTypes"])
            ? new List<string>()
            : _configuration["AllowedVideoMimeTypes"].Split(',').ToList();
-        #endregion
+
+        #endregion Allowed File Types
     }
 }

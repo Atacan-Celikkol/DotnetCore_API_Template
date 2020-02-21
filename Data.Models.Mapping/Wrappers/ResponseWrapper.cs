@@ -10,8 +10,10 @@ namespace Data.Models.Mapping.Wrappers
     {
         [JsonConverter(typeof(StringEnumConverter))]
         public ApiResponseStatus Status { get; set; }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string StackTrace { get; set; }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Message { get; set; }
 
@@ -69,8 +71,10 @@ namespace Data.Models.Mapping.Wrappers
         public int TotalItemCount { get; set; }
         public int CurrentPage { get; set; }
         public int Size { get; set; }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int? NextPage { get; set; }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int? PreviousPage { get; set; }
 

@@ -11,6 +11,7 @@ namespace UnitTests
     {
         protected static ProjectConfiguration projectConfiguration;
         protected static DataContext dataContext;
+
         [AssemblyInitialize]
         public static void AssemblyInitialize(TestContext testContext)
         {

@@ -3,9 +3,8 @@
     public class IdentityCreationException : BaseException
     {
         public IdentityCreationException()
-            :base("Identity Creation Error")
+            : base("Identity Creation Error")
         {
-
         }
     }
 }

@@ -26,8 +26,10 @@ namespace Data.Models.Mapping.Responses
         public string Country { get; set; }
 
         #region Advertising
+
         public bool IsSmsAdvertisingPermitted { get; set; }
         public bool IsEmailAdvertisingPermitted { get; set; }
-        #endregion
+
+        #endregion Advertising
     }
 }

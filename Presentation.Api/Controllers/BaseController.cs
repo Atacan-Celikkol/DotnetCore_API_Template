@@ -10,18 +10,18 @@ using System.Security.Claims;
 namespace Presentation.Api.Controllers
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Route("api/Base")]
     public class BaseController : ControllerBase
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         protected readonly IMapper Mapper;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="mp"></param>
         public BaseController(IMapper mp)
@@ -30,7 +30,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string UserId
         {
@@ -44,7 +44,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string Culture
         {
@@ -58,7 +58,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string Email
         {
@@ -72,7 +72,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="value"></param>
@@ -83,7 +83,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="value"></param>
@@ -94,7 +94,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="source"></param>
         /// <param name="destination"></param>
@@ -107,7 +107,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="TDestination"></typeparam>
         /// <param name="source"></param>
@@ -118,7 +118,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
@@ -126,24 +126,21 @@ namespace Presentation.Api.Controllers
         /// <returns></returns>
         protected PaginatedResponse<T> PaginatedMapResponse<TInput, T>(PaginatedData<TInput> paginatedData)
         {
-
             return PaginatedResponse<T>.Create(Mapper.Map<List<T>>(paginatedData.Data),
                 paginatedData.TotalItemCount,
                 paginatedData.CurrentPage,
                 paginatedData.Size,
                 paginatedData.NextPage,
                 paginatedData.PreviousPage);
-
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         protected Response EmptyResponse()
         {
             return Data.Models.Mapping.Wrappers.Response.Create();
         }
-
     }
 }

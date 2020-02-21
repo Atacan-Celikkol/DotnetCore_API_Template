@@ -7,8 +7,8 @@ namespace Core.Exceptions
         public ValidationException() : base("Model could not be validated")
         {
             Extras = new List<Dictionary<string, string>>();
-
         }
+
         public ValidationException(List<Dictionary<string, string>> errors) : base("Model could not be validated.")
         {
             Extras = errors;

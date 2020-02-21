@@ -15,17 +15,18 @@ namespace Core.Utilities.Excel
     [SuppressMessage("ReSharper", "PossiblyMistakenUseOfParamsMethod")]
     public class Excel
     {
-
         private static readonly Lazy<Excel> Lazy = new Lazy<Excel>(() => new Excel());
         public static Excel Instance => Lazy.Value;
 
         #region DataToExcel
+
         public byte[] CreateExcelDocument<T>(List<T> sourceList)
         {
             var dataSet = new DataSet();
             dataSet.Tables.Add(ListToDataTable(sourceList));
             return CreateExcelDocumentAsStream(dataSet);
         }
+
         private byte[] CreateExcelDocumentAsStream(DataSet dataSet)
         {
             var stream = new MemoryStream();
@@ -42,15 +43,15 @@ namespace Core.Utilities.Excel
             stream.Close();
             return data;
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList"></param>
         /// <returns></returns>
         private DataTable ListToDataTable<T>(List<T> sourceList)
         {
-
             var dataTable = new DataTable();
             if (sourceList == null)
             {
@@ -86,7 +87,7 @@ namespace Core.Utilities.Excel
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -116,7 +117,7 @@ namespace Core.Utilities.Excel
 
         private void WriteExcelFile(DataSet ds, SpreadsheetDocument spreadsheet)
         {
-            //  Create the Excel file contents.  This function is used when creating an Excel file either writing 
+            //  Create the Excel file contents.  This function is used when creating an Excel file either writing
             //  to a file, or writing to a MemoryStream.
             spreadsheet.AddWorkbookPart();
             spreadsheet.WorkbookPart.Workbook = new Workbook();
@@ -135,7 +136,6 @@ namespace Core.Utilities.Excel
             uint worksheetNumber = 1;
             foreach (DataTable dt in ds.Tables)
             {
-
                 var newWorksheetPart = spreadsheet.WorkbookPart.AddNewPart<WorksheetPart>();
                 newWorksheetPart.Worksheet = new Worksheet();
 
@@ -161,6 +161,7 @@ namespace Core.Utilities.Excel
             }
             spreadsheet.WorkbookPart.Workbook.Save();
         }
+
         private void WriteDataTableToExcelWorksheet(DataTable dataTable, WorksheetPart worksheetPart)
         {
             var worksheet = worksheetPart.Worksheet;
@@ -247,10 +248,10 @@ namespace Core.Utilities.Excel
             return columnName;
         }
 
-
-        #endregion
+        #endregion DataToExcel
 
         #region ExcelToData
+
         public List<T> ReadExcelDocument<T>(byte[] byteArray)
         {
             var document = new MemoryStream(byteArray);
@@ -276,7 +277,6 @@ namespace Core.Utilities.Excel
                     }
 
                     var data = Activator.CreateInstance(typeof(T));
-
 
                     var lenght = typeof(T).GetProperties().Length;
 
@@ -329,11 +329,8 @@ namespace Core.Utilities.Excel
             }
             catch (Exception e)
             {
-
                 throw e;
             }
-
-
 
             if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
             {
@@ -347,6 +344,7 @@ namespace Core.Utilities.Excel
             }
             return value;
         }
-        #endregion
+
+        #endregion ExcelToData
     }
 }

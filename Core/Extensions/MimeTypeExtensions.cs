@@ -11,9 +11,9 @@ namespace Core.Extensions
         private static IDictionary<string, string> BuildMappings()
         {
             var mappings = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
- 
+
                 #region Big freaking list of mime types
-            
+
                 // maps both ways,
                 // extension -> mime type
                 //   and
@@ -23,7 +23,7 @@ namespace Core.Extensions
                 // some mime types can map to multiple extensions, so to get a deterministic mapping,
                 // add those to the dictionary specifcially
                 //
-                // combination of values from Windows 7 Registry and 
+                // combination of values from Windows 7 Registry and
                 // from C:\Windows\System32\inetsrv\config\applicationHost.config
                 // some added, including .7z and .dat
                 //
@@ -676,9 +676,8 @@ namespace Core.Extensions
                 {"video/x-la-asf", ".lsf"},
                 {"video/x-ms-asf", ".asf"},
                 {"x-world/x-vrml", ".xof"},
- 
-                #endregion
- 
+
+                #endregion Big freaking list of mime types
                 };
 
             var cache = mappings.ToList(); // need ToList() to avoid modifying while still enumerating

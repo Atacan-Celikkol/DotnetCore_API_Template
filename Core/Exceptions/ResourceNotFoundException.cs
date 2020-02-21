@@ -5,7 +5,6 @@
         public ResourceNotFoundException()
             : base("Resoruce Not Found")
         {
-
         }
     }
 }

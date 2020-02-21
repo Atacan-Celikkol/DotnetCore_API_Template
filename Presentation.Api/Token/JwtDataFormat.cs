@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using AuthenticationProperties = Microsoft.AspNetCore.Authentication.AuthenticationProperties;
-
 
 namespace Presentation.Api.Token
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class JwtDataFormat : ISecureDataFormat<AuthenticationTicket>
     {
@@ -17,7 +16,7 @@ namespace Presentation.Api.Token
         private readonly TokenValidationParameters _validationParameters;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="algorithm"></param>
         /// <param name="validationParameters"></param>
@@ -28,7 +27,7 @@ namespace Presentation.Api.Token
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="protectedText"></param>
         /// <returns></returns>
@@ -36,7 +35,7 @@ namespace Presentation.Api.Token
             => Unprotect(protectedText, null);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="protectedText"></param>
         /// <param name="purpose"></param>
@@ -74,7 +73,7 @@ namespace Presentation.Api.Token
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -84,7 +83,7 @@ namespace Presentation.Api.Token
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="data"></param>
         /// <param name="purpose"></param>

@@ -5,7 +5,9 @@ namespace Providers.Location
     public interface ILocationProvider
     {
         Task<LocationData> GetLocationDataAsync(string code);
+
         LocationData GetLocationDataFromDataString(string str, string code);
+
         LocationData GetLocationDataFromDataString(dynamic data, string code);
     }
 

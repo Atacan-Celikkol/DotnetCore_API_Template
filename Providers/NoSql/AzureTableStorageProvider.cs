@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using Providers.NoSql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.Exceptions;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Table;
-using Providers.NoSql;
 
 namespace Services.Providers
 {
@@ -24,8 +23,6 @@ namespace Services.Providers
             var tableAccount = CloudStorageAccount.Parse(conString
             );
             _tableClient = tableAccount.CreateCloudTableClient();
-
-
         }
 
         public AzureTableStorageProvider(CloudTableClient client)
@@ -87,7 +84,6 @@ namespace Services.Providers
                 var result = await table.ExecuteQuerySegmentedAsync(query, continuationToken);
                 entities.AddRange(result.ToList());
                 continuationToken = result.ContinuationToken;
-
             } while (continuationToken != null);
             return entities;
         }
@@ -110,6 +106,4 @@ namespace Services.Providers
 
         public DateTimeOffset CreateDate { get; set; }
     }
-
 }
-

@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using Core.Exceptions;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Exceptions;
-using Newtonsoft.Json;
 
 namespace Providers.Location
 {
     public class GoogleLocationProvider : ILocationProvider
     {
         private readonly string _apikey;
+
         public GoogleLocationProvider(string apiKey)
         {
             _apikey = apiKey;
@@ -67,6 +68,5 @@ namespace Providers.Location
             location.FormattedAddress = data.formatted_address.ToString();
             return location;
         }
-
     }
 }

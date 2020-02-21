@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.WindowsAzure.Storage;
+﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 using Newtonsoft.Json;
+using System;
+using System.Threading.Tasks;
 
 namespace Providers.Queue
 {
@@ -21,9 +21,8 @@ namespace Providers.Queue
             var storageAccount = CloudStorageAccount.Parse(conString
             );
             _queueClient = storageAccount.CreateCloudQueueClient();
-
-
         }
+
         public async Task SendQueueAsync(string queueName, object data)
         {
             var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(data));

@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 namespace Presentation.Api.Middlewares
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="next"></param>
         public ExceptionMiddleware(RequestDelegate next)
@@ -26,7 +26,7 @@ namespace Presentation.Api.Middlewares
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="httpContext"></param>
         /// <param name="localizer"></param>
@@ -68,22 +68,19 @@ namespace Presentation.Api.Middlewares
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public static class ExceptionMiddlewareExtensions
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
 
         public static IApplicationBuilder UseExceptionMiddleware(this IApplicationBuilder builder)
         {
-
             return builder.UseMiddleware<ExceptionMiddleware>();
-
         }
     }
-
 }

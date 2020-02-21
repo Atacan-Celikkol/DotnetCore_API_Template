@@ -6,10 +6,12 @@ namespace Data.Models.Common
     {
         string LanguageCode { get; set; }
     }
+
     public interface ITranslation : ILanguageCode
     {
         string Translation { get; set; }
     }
+
     public class BaseTranslation : BaseEntity, ILanguageCode
     {
         [MaxLength(10)]

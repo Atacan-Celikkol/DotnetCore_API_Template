@@ -15,13 +15,12 @@ using Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Presentation.Api.Controllers
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [ApiAuthorize]
     [Route("users")]
@@ -32,8 +31,9 @@ namespace Presentation.Api.Controllers
         private readonly UserService _userService;
         private readonly ProjectConfiguration _projectConfiguration;
         private readonly IFileProvider fileProvider;
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="mp"></param>
         /// <param name="um"></param>
@@ -49,7 +49,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -64,7 +64,6 @@ namespace Presentation.Api.Controllers
             userResponse.Roles = Map<List<RoleResponse>>(roles);
             return CreateResponse(userResponse);
         }
-
 
         /// <summary>
         /// Searches in Id, PhoneNumber, DisplayName.
@@ -82,27 +81,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpPut("{id}")]
-        [ApiAuthorize(Roles = "agency")]
-        public async Task<Response<UserResponse>> UpdateUserAsync(UserRequest request, string id)
-        {
-            var user = await _userService.GetItemAsync(UserId);
-            user = Map(request, user);
-            user = await _userService.UpdateItemAsync(user);
-
-            var roles = await _userService.GetUserRolesAsync(id);
-            var userResponse = Map<UserResponse>(user);
-            userResponse.Roles = Map<List<RoleResponse>>(roles);
-            return CreateResponse(userResponse);
-        }
-
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -153,7 +132,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="file"></param>
         /// <returns></returns>

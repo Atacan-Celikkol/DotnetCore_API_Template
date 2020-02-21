@@ -5,8 +5,10 @@ namespace Core.Extensions
     public static class SuperRandom
     {
         private static readonly Random Global = new Random();
+
         [ThreadStatic]
         private static Random _local;
+
         public static int Next()
         {
             var inst = _local;

@@ -1,15 +1,16 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using Core.Extensions;
+﻿using Core.Extensions;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Providers.File
 {
     public class AzureFileProvider : IFileProvider
     {
         protected static CloudBlobClient BlobClient { get; set; }
+
         public AzureFileProvider(string connString)
         {
             if (string.IsNullOrEmpty(connString))
@@ -21,7 +22,6 @@ namespace Providers.File
 
             BlobClient = storageAccount.CreateCloudBlobClient();
         }
-
 
         public async Task<Uri> SaveFileAsync(string folder, string path, byte[] bytes)
         {
@@ -46,6 +46,7 @@ namespace Providers.File
 
             return await blob.DeleteIfExistsAsync();
         }
+
         public async Task<byte[]> GetFileBytesAsync(string folder, string path)
         {
             var containerBlob = BlobClient.GetContainerReference(folder);
@@ -56,7 +57,6 @@ namespace Providers.File
                 await blob.DownloadToStreamAsync(stream);
 
                 return stream.ToArray();
-
             }
         }
 
@@ -74,6 +74,5 @@ namespace Providers.File
             await targetBlob.StartCopyAsync(sourceBlob);
             return targetBlob.CopyState.Status == CopyStatus.Success ? targetBlob.Uri : null;
         }
-
     }
 }

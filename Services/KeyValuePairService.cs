@@ -1,16 +1,18 @@
-﻿using System;
-using System.Globalization;
-using System.Threading.Tasks;
-using Data;
+﻿using Data;
 using Data.Models.Common;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Services
 {
     public interface IKeyValuePairService : IDataService<KeyValuePair>
     {
         Task<T> GetAsync<T>(string key);
+
         Task<KeyValuePair> GetResourceAsync(string key);
+
         Task UpsertAsync(string key, string value);
     }
 

@@ -15,6 +15,5 @@ namespace Data.Models.Mapping.Responses
 
     public class BaseResponse : BaseResponse<string>
     {
-
     }
 }

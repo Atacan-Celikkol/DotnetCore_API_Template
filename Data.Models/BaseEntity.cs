@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Core.Extensions;
+using System;
 using System.ComponentModel.DataAnnotations;
-using Core.Extensions;
-
 
 namespace Data.Models
 {
     public interface IBaseEntity : IBaseEntity<string>
     {
-
     }
+
     public interface IBaseEntity<TKey>
     {
         TKey Id { get; set; }
@@ -22,6 +21,7 @@ namespace Data.Models
     {
         [Key]
         public TKey Id { get; set; }
+
         public bool IsDeleted { get; set; }
         public DateTimeOffset CreateDate { get; set; }
         public DateTimeOffset? DeleteDate { get; set; }

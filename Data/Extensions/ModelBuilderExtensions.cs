@@ -6,7 +6,6 @@ namespace Data.Extensions
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-           
         }
     }
 }

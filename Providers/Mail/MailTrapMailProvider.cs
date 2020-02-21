@@ -8,6 +8,7 @@ namespace Providers.Mail
     public class MailTrapMailProvider : IMailProvider
     {
         private readonly SmtpClient _client;
+
         public MailTrapMailProvider(string username, string password)
         {
             _client = new SmtpClient
@@ -29,7 +30,6 @@ namespace Providers.Mail
             if (htmlBody == null) return;
             foreach (var email in emails)
             {
-
                 var mail = new MailMessage("no-reply@ovidos.com", email)
                 {
                     Subject = subject,

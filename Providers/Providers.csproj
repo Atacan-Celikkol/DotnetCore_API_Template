@@ -11,7 +11,7 @@
     <PackageReference Include="Infobip.Api.Client.NetStandard" Version="1.0.1" />
     <PackageReference Include="Microsoft.Azure.ServiceBus" Version="4.1.1" />
     <PackageReference Include="OviPush.Core" Version="1.0.0" />
-    <PackageReference Include="Sendgrid" Version="9.12.6" />
+    <PackageReference Include="Sendgrid" Version="9.12.7" />
     <PackageReference Include="Slack.Webhooks" Version="1.1.0" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>

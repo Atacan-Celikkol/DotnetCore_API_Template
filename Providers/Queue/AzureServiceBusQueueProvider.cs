@@ -1,7 +1,6 @@
 ﻿using Microsoft.Azure.ServiceBus;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +9,7 @@ namespace Providers.Queue
     public class AzureServiceBusQueueProvider : IQueueProvider
     {
         private readonly string _connectionString;
+
         public AzureServiceBusQueueProvider(string connectionString)
         {
             if (string.IsNullOrEmpty(connectionString))
@@ -18,6 +18,7 @@ namespace Providers.Queue
             }
             _connectionString = connectionString;
         }
+
         public async Task SendQueueAsync(string queueName, object data)
         {
             var client = new QueueClient(_connectionString, queueName);
@@ -39,7 +40,6 @@ namespace Providers.Queue
                 ContentType = "application/json"
             };
             await client.SendAsync(message);
-
         }
 
         public void SendQueue(string queueName, object data)
@@ -54,6 +54,7 @@ namespace Providers.Queue
             task.Wait();
         }
     }
+
     public class ScheduleQueueModel
     {
         public string Id { get; set; }

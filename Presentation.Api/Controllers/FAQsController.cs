@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Presentation.Api.Controllers
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Route("faqs")]
     [ApiController]
@@ -22,7 +22,7 @@ namespace Presentation.Api.Controllers
         private readonly FAQService _faqService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="mp"></param>
         /// <param name="faqs"></param>
@@ -32,7 +32,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="id">For Admin</param>
         /// <returns></returns>
@@ -56,7 +56,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -70,6 +70,5 @@ namespace Presentation.Api.Controllers
             var result = await _faqService.GetItemAsync(faq.Id);
             return MapResponse<FAQResponse>(result);
         }
-
     }
 }

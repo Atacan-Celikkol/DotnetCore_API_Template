@@ -7,31 +7,31 @@ namespace Data.Models.Mapping.Requests
     public class RegisterRequest
     {
         #region Required
+
         [Required]
         [MinLength(2)]
         public string FirstName { get; set; }
+
         [Required]
         [MinLength(2)]
         public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
         [Required]
         [MinLength(9)]
         public string PhoneNumber { get; set; }
+
         [Required]
         [MinLength(3)]
         public string Password { get; set; }
-        [Required]
-        [MinLength(5)]
-        public string CountryCode { get; set; }
-        #endregion
+
+        #endregion Required
 
         public DateTime? BirthDate { get; set; }
-        public string PassportNumber { get; set; }
         public Gender Gender { get; set; }
-        public string MobileProvider { get; set; }
-        public string ReferralCode { get; set; }
     }
 
     public class UserUpdateRequest
@@ -39,19 +39,23 @@ namespace Data.Models.Mapping.Requests
         [Required]
         [MinLength(2)]
         public string FirstName { get; set; }
+
         [Required]
         [MinLength(2)]
         public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public Gender Gender { get; set; }
 
         #region Advertising
+
         public bool IsSmsAdvertisingPermitted { get; set; }
         public bool IsEmailAdvertisingPermitted { get; set; }
-        #endregion
+
+        #endregion Advertising
     }
 }

@@ -32,6 +32,5 @@ namespace Core.Extensions
             }
             return Expression.Lambda(body, param);
         }
-
     }
 }

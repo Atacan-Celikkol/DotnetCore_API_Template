@@ -5,7 +5,6 @@
         public UserNotFoundException()
             : base(@"Kullanıcı bilgisine ulaşılamadı.")
         {
-
         }
     }
 }

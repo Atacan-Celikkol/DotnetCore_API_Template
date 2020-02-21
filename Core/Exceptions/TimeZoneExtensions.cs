@@ -143,6 +143,5 @@ namespace Core.Extensions
             }
             return windowsTimeZone;
         }
-    
     }
 }

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Presentation.Api.Token
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class TokenProviderOptions
     {
@@ -15,6 +15,7 @@ namespace Presentation.Api.Token
         /// </summary>
         /// <remarks>The default path is <c>/token</c>.</remarks>
         public string Path { get; set; } = "/token";
+
         /// <summary>
         /// If Otp is enabled generating token with this depath
         /// </summary>
@@ -46,6 +47,7 @@ namespace Presentation.Api.Token
         /// Resolves a user identity given a username and password.
         /// </summary>
         public Func<string, string, Task<ClaimsIdentity>> IdentityResolver { get; set; }
+
         /// <summary>
         /// Enable otp login
         /// </summary>

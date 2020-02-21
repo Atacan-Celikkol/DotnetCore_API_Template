@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using SendGrid;
+﻿using SendGrid;
 using SendGrid.Helpers.Mail;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Providers.Mail
 {

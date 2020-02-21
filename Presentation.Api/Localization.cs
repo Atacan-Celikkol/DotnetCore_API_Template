@@ -14,7 +14,5 @@
     /// </summary>
     public class Exceptions
     {
-
     }
-
 }

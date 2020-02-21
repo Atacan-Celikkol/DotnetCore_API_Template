@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Presentation.Api.Controllers
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Route("user-agreements")]
     [ApiController]
@@ -22,7 +22,7 @@ namespace Presentation.Api.Controllers
         private readonly IUserAgreementService _userAgreementService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="mp"></param>
         /// <param name="uas"></param>
@@ -32,7 +32,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="id">For Admin</param>
         /// <returns></returns>
@@ -56,7 +56,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -70,6 +70,5 @@ namespace Presentation.Api.Controllers
             var result = await _userAgreementService.GetItemAsync(agreement.Id);
             return MapResponse<UserAgreementResponse>(result);
         }
-
     }
 }

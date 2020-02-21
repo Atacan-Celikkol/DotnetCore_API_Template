@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Data;
+﻿using Data;
 using Providers.Sms;
+using System;
+using System.Threading.Tasks;
 
 namespace Services
 {
@@ -15,6 +13,7 @@ namespace Services
     public class SmsService : DataService, ISmsService
     {
         private readonly ISmsProvider _smsProvider;
+
         public SmsService(DataContext context, ISmsProvider smsProvider) : base(context)
         {
             _smsProvider = smsProvider;

@@ -1,8 +1,6 @@
 ﻿using OviPush.Core;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Providers.PushNotification
@@ -12,7 +10,6 @@ namespace Providers.PushNotification
         public AzurePushNotificationProvider(string hubName, string endpoint)
         {
             NotificationManager.SetConfiguration(hubName, endpoint);
-
         }
 
         public async Task SendNotificationAsync(string text, Dictionary<string, object> data = null, string badge = null, int count = 0, params string[] users)
@@ -20,11 +17,11 @@ namespace Providers.PushNotification
             if (users.Length > 0)
             {
                 var hashUser = new HashSet<string>(users);
-                await NotificationManager.Instance.SendNotificationAsync(text, data, hashUser.ToList(), badge , "default");
+                await NotificationManager.Instance.SendNotificationAsync(text, data, hashUser.ToList(), badge, "default");
             }
             else
             {
-                await NotificationManager.Instance.SendNotificationAsync(text, data , null , badge , "default");
+                await NotificationManager.Instance.SendNotificationAsync(text, data, null, badge, "default");
             }
         }
     }

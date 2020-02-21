@@ -33,7 +33,8 @@ namespace Core.Exceptions
             Key = GetType().Name;
             ErrorCode = UniqueHash(GetType().Name);
             StatusCode = code;
-        }      
+        }
+
         private static int UniqueHash(string value)
         {
             int h = 0;

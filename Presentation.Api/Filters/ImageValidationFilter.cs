@@ -13,6 +13,7 @@ namespace Presentation.Api.Filters
         public float Ratio { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
+
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             var formImage = context.HttpContext.Request.Form.Files.FirstOrDefault();

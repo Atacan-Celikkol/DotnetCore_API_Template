@@ -5,304 +5,304 @@
     </assembly>
     <members>
         <member name="T:Presentation.Api.Controllers.AboutUsController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.AboutUsController.#ctor(AutoMapper.IMapper,Services.IAboutUsService)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="mp"></param>
-            <param name="uas"></param>
+             </summary>
+             <param name="mp"></param>
+             <param name="uas"></param>
         </member>
         <member name="M:Presentation.Api.Controllers.AboutUsController.GetItemAsync(System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="id">For Admin</param>
-            <returns></returns>
+             </summary>
+             <param name="id">For Admin</param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.AboutUsController.CreateItemAsync(Data.Models.Mapping.Requests.AboutUsRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.AccountController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.AccountController.RegisterAsync(Data.Models.Mapping.Requests.RegisterRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.AccountController.LoginAsync(Data.Models.Requests.LoginRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="loginRequest"></param>     
-            <returns></returns>
+             </summary>
+             <param name="loginRequest"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.AccountController.ChangePasswordAsync(Data.Models.Mapping.Requests.ChangePasswordRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.AccountController.ForgotPasswordAsync(Data.Models.Mapping.Requests.ForgotPasswordRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.AccountController.ResetPasswordAsync(Data.Models.Mapping.Requests.ResetPasswordRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.AccountController.UpdateInformationAsync(Data.Models.Mapping.Requests.UserUpdateRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.BaseController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="F:Presentation.Api.Controllers.BaseController.Mapper">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.BaseController.#ctor(AutoMapper.IMapper)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="mp"></param>
+             </summary>
+             <param name="mp"></param>
         </member>
         <member name="P:Presentation.Api.Controllers.BaseController.UserId">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:Presentation.Api.Controllers.BaseController.Culture">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:Presentation.Api.Controllers.BaseController.Email">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.BaseController.MapResponse``1(System.Object)">
-            <summary>
+             <summary>
             
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value"></param>
-            <returns></returns>
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="value"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.BaseController.CreateResponse``1(``0)">
-            <summary>
+             <summary>
             
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="value"></param>
-            <returns></returns>
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="value"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.BaseController.Map``2(``0,``1)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="source"></param>
-            <param name="destination"></param>
-            <typeparam name="TSource"></typeparam>
-            <typeparam name="TDestination"></typeparam>
-            <returns></returns>
+             </summary>
+             <param name="source"></param>
+             <param name="destination"></param>
+             <typeparam name="TSource"></typeparam>
+             <typeparam name="TDestination"></typeparam>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.BaseController.Map``1(System.Object)">
-            <summary>
+             <summary>
             
-            </summary>
-            <typeparam name="TDestination"></typeparam>
-            <param name="source"></param>
-            <returns></returns>
+             </summary>
+             <typeparam name="TDestination"></typeparam>
+             <param name="source"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.BaseController.PaginatedMapResponse``2(Data.Extensions.PaginatedData{``0})">
-            <summary>
+             <summary>
             
-            </summary>
-            <typeparam name="TInput"></typeparam>
-            <typeparam name="T"></typeparam>
-            <param name="paginatedData"></param>
-            <returns></returns>
+             </summary>
+             <typeparam name="TInput"></typeparam>
+             <typeparam name="T"></typeparam>
+             <param name="paginatedData"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.BaseController.EmptyResponse">
-            <summary>
+             <summary>
             
-            </summary>
-            <returns></returns>
+             </summary>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.CommonController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.CommonController.#ctor(AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="mp"></param>
-            <param name="rlo"></param>
+             </summary>
+             <param name="mp"></param>
+             <param name="rlo"></param>
         </member>
         <member name="M:Presentation.Api.Controllers.CommonController.GetSupportedLanguages">
-            <summary>
+             <summary>
             
-            </summary>
-            <returns></returns>
+             </summary>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.FAQsController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.FAQsController.#ctor(AutoMapper.IMapper,Services.FAQService)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="mp"></param>
-            <param name="faqs"></param>
+             </summary>
+             <param name="mp"></param>
+             <param name="faqs"></param>
         </member>
         <member name="M:Presentation.Api.Controllers.FAQsController.GetItemAsync(System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="id">For Admin</param>
-            <returns></returns>
+             </summary>
+             <param name="id">For Admin</param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.FAQsController.CreateItemAsync(Data.Models.Mapping.Requests.Common.FAQRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.HomeController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.HomeController.Index">
-            <summary>
+             <summary>
             
-            </summary>
-            <returns></returns>
+             </summary>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.HomeController.About">
-            <summary>
+             <summary>
             
-            </summary>
-            <returns></returns>
+             </summary>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.HomeController.ErrorCodes">
-            <summary>
+             <summary>
             
-            </summary>
-            <returns></returns>
+             </summary>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.HomeController.Error">
-            <summary>
+             <summary>
             
-            </summary>
-            <returns></returns>
+             </summary>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.PrivacyPoliciesController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.PrivacyPoliciesController.#ctor(AutoMapper.IMapper,Services.PrivacyPolicyService)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="mp"></param>
-            <param name="pps"></param>
+             </summary>
+             <param name="mp"></param>
+             <param name="pps"></param>
         </member>
         <member name="M:Presentation.Api.Controllers.PrivacyPoliciesController.GetItemAsync(System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="id">For Admin</param>
-            <returns></returns>
+             </summary>
+             <param name="id">For Admin</param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.PrivacyPoliciesController.CreateItemAsync(Data.Models.Mapping.Requests.Common.PrivacyPolicyRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.UserAgreementsController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.UserAgreementsController.#ctor(AutoMapper.IMapper,Services.IUserAgreementService)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="mp"></param>
-            <param name="uas"></param>
+             </summary>
+             <param name="mp"></param>
+             <param name="uas"></param>
         </member>
         <member name="M:Presentation.Api.Controllers.UserAgreementsController.GetItemAsync(System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="id">For Admin</param>
-            <returns></returns>
+             </summary>
+             <param name="id">For Admin</param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.UserAgreementsController.CreateItemAsync(Data.Models.Mapping.Requests.Common.UserAgreementRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Controllers.UsersController">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Controllers.UsersController.#ctor(AutoMapper.IMapper,Microsoft.AspNetCore.Identity.UserManager{Data.Models.Identity.User},Services.UserService,Core.Extensions.ProjectConfiguration,Providers.File.IFileProvider)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="mp"></param>
-            <param name="um"></param>
-            <param name="us"></param>
-            <param name="pc"></param>
-            <param name="fp"></param>
+             </summary>
+             <param name="mp"></param>
+             <param name="um"></param>
+             <param name="us"></param>
+             <param name="pc"></param>
+             <param name="fp"></param>
         </member>
         <member name="M:Presentation.Api.Controllers.UsersController.GetUserAsync(System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
+             </summary>
+             <param name="id"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.UsersController.SearchUsersAsync(Presentation.Api.SearchQueryParams)">
             <summary>
@@ -311,20 +311,12 @@
             <param name="search"></param>
             <returns></returns>
         </member>
-        <member name="M:Presentation.Api.Controllers.UsersController.UpdateUserAsync(Data.Models.Mapping.Requests.UserRequest,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="request"></param>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="M:Presentation.Api.Controllers.UsersController.CreateUserAsync(Data.Models.Mapping.Requests.UserRequest)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.UsersController.DeleteUserAsync(System.String)">
             <summary>
@@ -333,16 +325,16 @@
             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Controllers.UsersController.UploadProfilePictureAsync(Microsoft.AspNetCore.Http.IFormFile)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="file"></param>
-            <returns></returns>
+             </summary>
+             <param name="file"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Filters.ApiAuthorizeAttribute">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:Presentation.Api.Language">
             <summary>
@@ -357,89 +349,89 @@
             </summary>
         </member>
         <member name="T:Presentation.Api.Middlewares.ExceptionMiddleware">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Middlewares.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="next"></param>
+             </summary>
+             <param name="next"></param>
         </member>
         <member name="M:Presentation.Api.Middlewares.ExceptionMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext,Microsoft.Extensions.Localization.IStringLocalizer{Presentation.Api.Exceptions})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="httpContext"></param>
-            <param name="localizer"></param>
-            <returns></returns>
+             </summary>
+             <param name="httpContext"></param>
+             <param name="localizer"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Middlewares.ExceptionMiddlewareExtensions">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Middlewares.ExceptionMiddlewareExtensions.UseExceptionMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
+             </summary>
+             <param name="builder"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Program">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Program.Main(System.String[])">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="args"></param>
+             </summary>
+             <param name="args"></param>
         </member>
         <member name="M:Presentation.Api.Program.CreateHostBuilder(System.String[])">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="args"></param>
-            <returns></returns>
+             </summary>
+             <param name="args"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Providers.IdentityDataInitializer">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Providers.IdentityDataInitializer.SeedData(Microsoft.AspNetCore.Identity.UserManager{Data.Models.Identity.User},Microsoft.AspNetCore.Identity.RoleManager{Data.Models.Identity.Role})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="userManager"></param>
-            <param name="roleManager"></param>
+             </summary>
+             <param name="userManager"></param>
+             <param name="roleManager"></param>
         </member>
         <member name="M:Presentation.Api.Providers.IdentityDataInitializer.SeedUsers(Microsoft.AspNetCore.Identity.UserManager{Data.Models.Identity.User})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="userManager"></param>
+             </summary>
+             <param name="userManager"></param>
         </member>
         <member name="M:Presentation.Api.Providers.IdentityDataInitializer.SeedRoles(Microsoft.AspNetCore.Identity.RoleManager{Data.Models.Identity.Role})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="roleManager"></param>
+             </summary>
+             <param name="roleManager"></param>
         </member>
         <member name="T:Presentation.Api.Providers.UserIdProvider">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Providers.UserIdProvider.GetUserId(Microsoft.AspNetCore.SignalR.HubConnectionContext)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="connection"></param>
-            <returns></returns>
+             </summary>
+             <param name="connection"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.SearchQueryParams">
             <summary>
@@ -470,135 +462,135 @@
             </summary>
         </member>
         <member name="T:Presentation.Api.Startup">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:Presentation.Api.Startup.Configuration">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="configuration"></param>
-            <param name="env"></param>
+             </summary>
+             <param name="configuration"></param>
+             <param name="env"></param>
         </member>
         <member name="M:Presentation.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="services"></param>
+             </summary>
+             <param name="services"></param>
         </member>
         <member name="M:Presentation.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Identity.UserManager{Data.Models.Identity.User},Microsoft.AspNetCore.Identity.RoleManager{Data.Models.Identity.Role})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="app"></param>
-            <param name="env"></param>
-            <param name="userManager"></param>
-            <param name="roleManager"></param>
+             </summary>
+             <param name="app"></param>
+             <param name="env"></param>
+             <param name="userManager"></param>
+             <param name="roleManager"></param>
         </member>
         <member name="T:Presentation.Api.Token.JwtDataFormat">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Token.JwtDataFormat.#ctor(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="algorithm"></param>
-            <param name="validationParameters"></param>
+             </summary>
+             <param name="algorithm"></param>
+             <param name="validationParameters"></param>
         </member>
         <member name="M:Presentation.Api.Token.JwtDataFormat.Unprotect(System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="protectedText"></param>
-            <returns></returns>
+             </summary>
+             <param name="protectedText"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Token.JwtDataFormat.Unprotect(System.String,System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="protectedText"></param>
-            <param name="purpose"></param>
-            <returns></returns>
+             </summary>
+             <param name="protectedText"></param>
+             <param name="purpose"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Token.JwtDataFormat.Protect(Microsoft.AspNetCore.Authentication.AuthenticationTicket)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="data"></param>
-            <returns></returns>
+             </summary>
+             <param name="data"></param>
+             <returns></returns>
         </member>
         <member name="M:Presentation.Api.Token.JwtDataFormat.Protect(Microsoft.AspNetCore.Authentication.AuthenticationTicket,System.String)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="data"></param>
-            <param name="purpose"></param>
-            <returns></returns>
+             </summary>
+             <param name="data"></param>
+             <param name="purpose"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Token.JwtHelper">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Token.JwtHelper.#ctor(Presentation.Api.Token.TokenProviderOptions,Microsoft.AspNetCore.Identity.UserManager{Data.Models.Identity.User})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="options"></param>
-            <param name="um"></param>
+             </summary>
+             <param name="options"></param>
+             <param name="um"></param>
         </member>
         <member name="M:Presentation.Api.Token.JwtHelper.GenerateJwtTokenAsync(Data.Models.Identity.User,System.Nullable{System.TimeSpan})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="user"></param>
-            <param name="expireIn"></param>
-            <returns></returns>
+             </summary>
+             <param name="user"></param>
+             <param name="expireIn"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Token.MiddlewareExtensions">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Token.MiddlewareExtensions.UseTokenProvider(Microsoft.AspNetCore.Builder.IApplicationBuilder,Presentation.Api.Token.TokenProviderOptions)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="builder"></param>
-            <param name="parameters"></param>
-            <returns></returns>
+             </summary>
+             <param name="builder"></param>
+             <param name="parameters"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Token.TokenProviderMiddleware">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:Presentation.Api.Token.TokenProviderMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{Presentation.Api.Token.TokenProviderOptions})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="next"></param>
-            <param name="options"></param>
+             </summary>
+             <param name="next"></param>
+             <param name="options"></param>
         </member>
         <member name="M:Presentation.Api.Token.TokenProviderMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="context"></param>
-            <returns></returns>
+             </summary>
+             <param name="context"></param>
+             <returns></returns>
         </member>
         <member name="T:Presentation.Api.Token.TokenProviderOptions">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:Presentation.Api.Token.TokenProviderOptions.Path">
             <summary>

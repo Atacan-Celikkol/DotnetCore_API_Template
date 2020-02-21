@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Identity;
 namespace Presentation.Api.Providers
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public static class IdentityDataInitializer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="userManager"></param>
         /// <param name="roleManager"></param>
@@ -20,12 +20,11 @@ namespace Presentation.Api.Providers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="userManager"></param>
         public static void SeedUsers(UserManager<User> userManager)
         {
-
             if (userManager.FindByNameAsync
 ("admin@ovidos.com").Result == null)
             {
@@ -44,18 +43,16 @@ namespace Presentation.Api.Providers
                     var response = userManager.AddToRoleAsync(user, "admin").Result;
                 }
             }
-
-        
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="roleManager"></param>
         public static void SeedRoles(RoleManager<Role> roleManager)
         {
             if (!roleManager.RoleExistsAsync("admin").Result)
             {
-
                 var admin = new Role()
                 {
                     Name = "admin",
@@ -64,12 +61,10 @@ namespace Presentation.Api.Providers
                 };
 
                 var adminResult = roleManager.CreateAsync(admin).Result;
-
             }
 
             if (!roleManager.RoleExistsAsync("member").Result)
             {
-
                 var member = new Role()
                 {
                     Name = "member",
@@ -78,9 +73,7 @@ namespace Presentation.Api.Providers
                 };
 
                 var memberResult = roleManager.CreateAsync(member).Result;
-
             }
         }
     }
-
 }

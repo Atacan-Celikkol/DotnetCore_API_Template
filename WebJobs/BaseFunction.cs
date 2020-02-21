@@ -11,6 +11,4 @@ namespace WebJobs
             return JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(message.Body));
         }
     }
-
-
 }

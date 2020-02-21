@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace Data.Extensions
 {
@@ -29,7 +29,6 @@ namespace Data.Extensions
             {
                 NextPage = currentPage + 1;
             }
-
         }
     }
 
@@ -52,4 +51,3 @@ namespace Data.Extensions
         }
     }
 }
-

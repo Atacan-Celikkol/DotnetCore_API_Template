@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Options;
 
-
 namespace Presentation.Api.Token
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public static class MiddlewareExtensions
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="parameters"></param>

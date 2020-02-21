@@ -8,14 +8,15 @@ namespace Data.Models.Mapping.Requests
     {
         [Required]
         public string FirstName { get; set; }
+
         [Required]
         public string LastName { get; set; }
+
         [Required]
         public string Email { get; set; }
+
         public bool GeneratePassword { get; set; }
         public string Password { get; set; }
-        [Required]
-        public string ExternalId { get; set; }
 
         public Gender? Gender { get; set; }
         public DateTime? BirthDate { get; set; }

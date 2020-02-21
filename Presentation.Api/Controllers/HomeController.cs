@@ -10,12 +10,12 @@ using System.Reflection;
 namespace Presentation.Api.Controllers
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class HomeController : Controller
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         // GET: /<controller>/
@@ -25,7 +25,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public IActionResult About()
@@ -34,7 +34,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public IActionResult ErrorCodes()
@@ -60,7 +60,7 @@ namespace Presentation.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public IActionResult Error()

@@ -1,17 +1,12 @@
 ﻿using AutoMapper;
-using Data.Models.Identity;
-using Data.Models.Mapping.Helpers;
-using Data.Models.Mapping.Requests;
-using Data.Models.Mapping.Responses;
-using System.Globalization;
-using NetTopologySuite.Geometries;
 using Data.Models.Common;
-using Data.Models.Mapping.Resolvers;
+using Data.Models.Identity;
+using Data.Models.Mapping.Requests;
 using Data.Models.Mapping.Requests.Common;
+using Data.Models.Mapping.Resolvers;
+using Data.Models.Mapping.Responses;
 using Data.Models.Mapping.Responses.Common;
-using System.Collections.Generic;
-using System.Linq;
-using System;
+using System.Globalization;
 
 namespace Data.Models.Mapping
 {
@@ -32,6 +27,7 @@ namespace Data.Models.Mapping
             CreateMap<Role, RoleResponse>();
 
             #region Common
+
             CreateMap<CultureInfo, SupportedLanguageResponse>()
                 .ForMember(t => t.Code, opt => opt.MapFrom(src => src.Name))
                 .ForMember(t => t.Name, opt => opt.MapFrom(src => src.EnglishName));
@@ -47,8 +43,8 @@ namespace Data.Models.Mapping
 
             CreateMap<PrivacyPolicyRequest, PrivacyPolicy>();
             CreateMap<PrivacyPolicy, PrivacyPolicyResponse>();
-            #endregion
 
+            #endregion Common
         }
     }
 }

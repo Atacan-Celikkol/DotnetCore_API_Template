@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using Data.Models.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using AutoMapper;
-using Data.Models.Common;
 
 namespace Data.Models.Mapping.Helpers
 {
@@ -50,8 +50,6 @@ namespace Data.Models.Mapping.Helpers
         public static string GetTranslation<T>(this ICollection<T> translations, string propertyName,
             string languageCode) where T : BaseTranslation
         {
-
-
             var translation = translations.FirstOrDefault(t =>
                 string.Equals(t.LanguageCode, languageCode, StringComparison.InvariantCultureIgnoreCase));
             if (translation == null)

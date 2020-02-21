@@ -10,7 +10,6 @@ namespace Core.Extensions
             return dt.AddDays(-1 * diff).Date;
         }
 
-
         public static DateTimeOffset GetFirstWeekOfYear(this DateTimeOffset dt)
         {
             var diff = dt.DayOfWeek - DayOfWeek.Monday;

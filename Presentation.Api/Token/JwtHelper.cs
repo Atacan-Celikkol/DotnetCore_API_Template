@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 namespace Presentation.Api.Token
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class JwtHelper
     {
         private readonly TokenProviderOptions _options;
         private readonly UserManager<User> _userManager;
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="options"></param>
         /// <param name="um"></param>
@@ -27,14 +28,13 @@ namespace Presentation.Api.Token
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="user"></param>
         /// <param name="expireIn"></param>
         /// <returns></returns>
         public async Task<string> GenerateJwtTokenAsync(User user, TimeSpan? expireIn = null)
         {
-
             var roles = await _userManager.GetRolesAsync(user);
             var now = DateTime.UtcNow;
             var claims = new List<Claim>

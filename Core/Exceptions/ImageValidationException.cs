@@ -3,7 +3,7 @@
     public class ImageValidationException : BaseException
     {
         public ImageValidationException()
-            :base("Check Image Rules")
+            : base("Check Image Rules")
         {
         }
     }

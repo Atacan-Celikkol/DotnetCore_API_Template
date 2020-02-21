@@ -60,6 +60,7 @@ namespace Core.Extensions
                         else
                             stringBuilder.Append(c.RemapInternationalCharToAscii());
                         break;
+
                     case UnicodeCategory.SpaceSeparator:
                     case UnicodeCategory.ConnectorPunctuation:
                     case UnicodeCategory.DashPunctuation:
@@ -176,6 +177,7 @@ namespace Core.Extensions
         }
 
         #region Internal Classes
+
         internal static class HtmlRemoval
         {
             /// <summary>
@@ -228,7 +230,7 @@ namespace Core.Extensions
                 return new string(array, 0, arrayIndex);
             }
         }
-        #endregion
 
+        #endregion Internal Classes
     }
 }

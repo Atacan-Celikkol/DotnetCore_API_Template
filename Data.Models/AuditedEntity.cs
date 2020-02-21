@@ -4,7 +4,6 @@ namespace Data.Models
 {
     public interface IAuditedEntity : IAuditedEntity<string>
     {
-
     }
 
     public interface IAuditedEntity<TKey> : IBaseEntity<TKey>
@@ -12,6 +11,7 @@ namespace Data.Models
         DateTimeOffset? LastModifiedDate { get; set; }
         string ModifiedBy { get; set; }
     }
+
     public class AuditedEntity<TKey> : BaseEntity<TKey>, IAuditedEntity<TKey> where TKey : IEquatable<TKey>
     {
         public DateTimeOffset? LastModifiedDate { get; set; }
@@ -23,5 +23,4 @@ namespace Data.Models
         public DateTimeOffset? LastModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
     }
-
 }
