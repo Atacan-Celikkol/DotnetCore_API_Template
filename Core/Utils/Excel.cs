@@ -12,7 +12,6 @@ using System.Linq;
 
 namespace Core.Utilities.Excel
 {
-    [SuppressMessage("ReSharper", "PossiblyMistakenUseOfParamsMethod")]
     public class Excel
     {
         private static readonly Lazy<Excel> Lazy = new Lazy<Excel>(() => new Excel());

@@ -64,7 +64,6 @@ namespace Services
     {
     }
 
-    // ReSharper disable once UnusedTypeParameter
     public abstract class DataService<TContext, TModel> : IDataService
         where TContext : class
     {
